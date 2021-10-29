@@ -1,0 +1,101 @@
+actions:
+  pre:
+    install-omz: git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh; git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions; git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    install-vimrc: git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime; sh ~/.vim_runtime/install_awesome_vimrc.sh
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  f_imwheelrc:
+    src: imwheelrc
+    dst: ~/.imwheelrc
+  f_vimrc:
+    src: vimrc
+    dst: ~/.vimrc
+  f_my_configs.vim:
+    src: vim_runtime/my_configs.vim
+    dst: ~/.vim_runtime/my_configs.vim
+    actions:
+      - install-vimrc
+  f_xprofile:
+    src: xprofile
+    dst: ~/.xprofile
+  f_xinitrc:
+    src: xinitrc
+    dst: ~/.xinitrc
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+    actions:
+      - install-omz
+  d_alacritty:
+    src: config/alacritty
+    dst: ~/.config/alacritty
+  d_conky:
+    src: config/conky
+    dst: ~/.config/conky
+  d_feh:
+    src: config/feh
+    dst: ~/.config/feh
+  d_fontconfig:
+    src: config/fontconfig
+    dst: ~/.config/fontconfig
+  d_i3:
+    src: config/i3
+    dst: ~/.config/i3
+  d_mpv:
+    src: config/mpv
+    dst: ~/.config/mpv
+    upignore:
+      - icc_cache/*
+      - shaders_cache/*
+      - watch_later
+    cmpignore:
+      - icc_cache/*
+      - shaders_cache/*
+  d_picom:
+    src: config/picom
+    dst: ~/.config/picom
+  d_pip:
+    src: config/pip
+    dst: ~/.config/pip
+  d_polybar:
+    src: config/polybar
+    dst: ~/.config/polybar
+  d_fcitx5:
+    src: config/fcitx5
+    dst: ~/.config/fcitx5
+  d_wallpaper:
+    src: wallpaper
+    dst: ~/.wallpaper
+    upignore:
+      - '!67501250_p0.jpg'
+      - '[a-zA-Z0-9]*'
+    cmpignore:
+      - '*'
+profiles:
+  arch:
+    dotfiles:
+      - f_imwheelrc
+      - f_vimrc
+      - f_my_configs.vim
+      - f_xprofile
+      - f_xinitrc
+      - f_zshrc
+      - d_alacritty
+      - d_conky
+      - d_feh
+      - d_fontconfig
+      - d_i3
+      - d_mpv
+      - d_picom
+      - d_pip
+      - d_polybar
+      - d_fcitx5
+      - d_wallpaper
