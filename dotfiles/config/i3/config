@@ -206,6 +206,7 @@ for_window [class="Nvidia-settings"] floating enable border normal
 for_window [class="mpv"] floating enable
 for_window [class="feh"] floating enable border normal
 for_window [class="flameshot"] floating enable border normal
+for_window [class="Spotify"] floating enable
 for_window [class="qqmusic"] floating enable
 for_window [class="Seahorse"] floating enable
 

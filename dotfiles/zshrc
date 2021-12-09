@@ -74,8 +74,8 @@ plugins=(
   docker
   docker-compose
   extract
+  fnm
   git
-  nvm
   pip
   poetry
   thefuck
@@ -112,9 +112,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /usr/share/nvm/init-nvm.sh
+# fnm
+export PATH=/home/grasssand/.fnm:$PATH
+eval "`fnm env`"
 
 alias dotdrop="dotdrop --cfg=~/.dotfiles/config.yaml"
-alias proxyon="export http_proxy='http://127.0.0.1:7890'; export https_proxy='http://127.0.0.1:7890'"
-alias proxyoff="unset http_proxy; unset https_proxy"
+alias proxyon="export {HTTP,HTTPS,ALL}_PROXY='http://127.0.0.1:7890'"
+alias proxyoff="unset {HTTP,HTTPS,ALL}_PROXY"
 
