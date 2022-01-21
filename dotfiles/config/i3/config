@@ -176,7 +176,13 @@ bindsym $mod+r mode "resize"
 
 
 # color
-
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #5e81ac #ffffff #2e9ef4   #285577
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
 
 # set inner/outer gaps
 # gaps top                40
@@ -198,6 +204,7 @@ for_window [class="Lxappearance"] floating enable border normal
 for_window [class="qt5ct"] floating enable border normal
 for_window [class="Xarchiver"] floating enable
 for_window [class="Pavucontrol"] floating enable border normal
+for_window [class="easyeffects"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Nm-connection-editor"] floating enable border normal
 for_window [class="fcitx5-config-qt"] floating enable border normal
@@ -227,7 +234,7 @@ exec --no-startup-id conky &
 
 # applications
 #bindsym $mod+space exec --no-startup-id xkblayout-state set +1
-bindsym $mod+shift+x exec betterlockscreen -l dimblur -r 1920x1080
+bindsym $mod+shift+x exec betterlockscreen -l dimblur
 bindsym $alt+ctrl+t exec i3-sensible-terminal
 bindsym $mod+F1 exec alacritty
 bindsym $mod+F2 exec pcmanfm
