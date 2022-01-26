@@ -114,7 +114,6 @@ export LANGUAGE=zh_CN:en_US
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # fnm
-export PATH=/home/grasssand/.fnm:$PATH
 eval "`fnm env`"
 
 alias dotdrop="dotdrop --cfg=~/.dotfiles/config.yaml"
