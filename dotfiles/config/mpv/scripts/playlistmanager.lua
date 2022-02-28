@@ -1,6 +1,6 @@
 --[[
 SOURCE_ https://github.com/jonniek/mpv-playlistmanager
-COMMIT_20210618_1c2c880
+COMMIT_ 20210618 1c2c880
 
 高级播放列表，用于替换内置的过于简洁的列表
 自定义快捷键方案示例，在 input.conf 中另起一行：

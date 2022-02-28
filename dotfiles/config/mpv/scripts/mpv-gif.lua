@@ -37,7 +37,7 @@ output_directory=string.gsub(options.dir, '\"', '')
 
 start_time = -1
 end_time = -1
-palette="%TEMP%palette.png"
+palette="/tmp/palette.png"
 
 -- The roundabout way has to be used due to a some weird
 -- behavior with %TEMP% on the subtitles= parameter in ffmpeg

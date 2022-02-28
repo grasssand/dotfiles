@@ -56,12 +56,9 @@ dotfiles:
     src: config/mpv
     dst: ~/.config/mpv
     upignore:
-    - icc_cache/*
-    - shaders_cache/*
-    - watch_later
+    - _cache
     cmpignore:
-    - icc_cache/*
-    - shaders_cache/*
+    - _cache
   d_picom:
     src: config/picom
     dst: ~/.config/picom
@@ -71,9 +68,6 @@ dotfiles:
   d_polybar:
     src: config/polybar
     dst: ~/.config/polybar
-  d_fcitx5:
-    src: config/fcitx5
-    dst: ~/.config/fcitx5
   d_wallpaper:
     src: wallpaper
     dst: ~/.wallpaper
@@ -85,6 +79,18 @@ dotfiles:
   f_betterlockscreenrc:
     src: config/betterlockscreenrc
     dst: ~/.config/betterlockscreenrc
+  f_xresources:
+    src: Xresources
+    dst: ~/.Xresources
+  d_fcitx5:
+    src: local/share/fcitx5
+    dst: ~/.local/share/fcitx5
+    upignore:
+      - rime/build
+      - rime/*.userdb
+    cmpignore:
+      - rime/build
+      - rime/*.userdb
 profiles:
   arch:
     dotfiles:
@@ -103,6 +109,7 @@ profiles:
     - d_picom
     - d_pip
     - d_polybar
-    - d_fcitx5
     - d_wallpaper
     - f_betterlockscreenrc
+    - f_xresources
+    - d_fcitx5

@@ -1,6 +1,6 @@
 --[[
 SOURCE_ https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua
-COMMIT_20210624_ee27629
+COMMIT_ 20210624 ee27629
 
 自动加载当前目录的所有文件到播放列表
 根据mpv的机制，切换目录会清空当前列表
@@ -215,11 +215,11 @@ function find_and_add_entries()
 
             if direction == -1 then
                 if pl_current == 1 then -- never add additional entries in the middle
-                    msg.info("Prepending " .. file)
+                    msg.info("追加（前）" .. file)
                     table.insert(append[-1], 1, filepath)
                 end
             else
-                msg.info("Adding " .. file)
+                msg.info("追加（后）" .. file)
                 table.insert(append[1], filepath)
             end
         end

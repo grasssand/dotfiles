@@ -238,6 +238,6 @@ bindsym $mod+shift+x exec betterlockscreen -l dimblur
 bindsym $alt+ctrl+t exec i3-sensible-terminal
 bindsym $mod+F1 exec alacritty
 bindsym $mod+F2 exec pcmanfm
-bindsym $mod+F3 exec microsoft-edge-beta
+bindsym $mod+F3 exec microsoft-edge-stable
 bindsym $mod+F4 exec code
 bindsym $mod+shift+s exec flameshot gui

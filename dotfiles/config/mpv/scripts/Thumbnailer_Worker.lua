@@ -1,4 +1,9 @@
--- deus0ww - 2021-05-07
+--[[
+SOURCE_ https://github.com/deus0ww/mpv-conf/blob/master/scripts/Thumbnailer_Worker.lua
+COMMIT_ 20210716 91ae987
+
+搭配osc_lazy的缩略图脚本(2)/(2)
+]]--
 
 local ipairs,loadfile,pairs,pcall,tonumber,tostring = ipairs,loadfile,pairs,pcall,tonumber,tostring
 local debug,io,math,os,string,table,utf8 = debug,io,math,os,string,table,utf8
@@ -318,7 +323,7 @@ local function create_mpv_command(time, output, force_accurate_seek)
 		worker_extra.index_skip_loop  = concat_args(args, '--vd-lavc-skiploopfilter=',    accurate_seek and 'nonref' or 'nonkey')
 		worker_extra.index_skip_idct  = concat_args(args, '--vd-lavc-skipidct=',          accurate_seek and 'nonref' or 'nonkey')
 		worker_extra.index_skip_frame = concat_args(args, '--vd-lavc-skipframe=',         accurate_seek and 'nonref' or 'nonkey')
-		concat_args(args, '--hwdec=no')
+		concat_args(args, '--hwdec=', worker_options.mpv_hwdec)
 		concat_args(args, '--hdr-compute-peak=no')
 		concat_args(args, '--vd-lavc-dr=no')
 		concat_args(args, '--aid=no')
@@ -328,7 +333,7 @@ local function create_mpv_command(time, output, force_accurate_seek)
 		concat_args(args, '--frames=1')
 		concat_args(args, state.input_fullpath)
 		-- Filters
-		concat_args(args, '--sws-scaler=', worker_options.ffmpeg_scaler)
+		concat_args(args, '--sws-scaler=', worker_options.mpv_scaler)
 		concat_args(args, video_filters)
 		-- Output
 		concat_args(args, '--of=rawvideo')
@@ -368,6 +373,10 @@ local function create_ffmpeg_command(time, output, force_accurate_seek)
 		add_args(args, '-hide_banner')
 		add_args(args, '-nostats')
 		add_args(args, '-loglevel', 'warning')
+		if not (worker_options.ffmpeg_hwaccel == 'none') then
+			add_args(args, '-hwaccel', worker_options.ffmpeg_hwaccel)
+			add_args(args, '-hwaccel_device', worker_options.ffmpeg_hwaccel_device)
+		end
 		-- Input
 		add_args(args, '-threads', worker_options.ffmpeg_threads)
 		add_args(args, '-fflags', 'fastseek')
