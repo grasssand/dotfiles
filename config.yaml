@@ -88,9 +88,11 @@ dotfiles:
     upignore:
       - rime/build
       - rime/*.userdb
+      - rime/user.yaml
     cmpignore:
       - rime/build
       - rime/*.userdb
+      - rime/user.yaml
 profiles:
   arch:
     dotfiles:
