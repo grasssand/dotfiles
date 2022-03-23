@@ -58,7 +58,7 @@ case $chosen in
         ;;
     $lock)
 		if [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l
+			betterlockscreen -l dimblur
 		elif [[ -f /usr/bin/i3lock ]]; then
 			i3lock
 		fi
@@ -67,7 +67,7 @@ case $chosen in
 		ans=$(confirm_exit &)
 		if [[ $ans == "yes" || $ans == "YES" || $ans == "y" || $ans == "Y" ]]; then
 			# mpc -q pause
-			# amixer set Master mute
+			amixer set Master mute
 			systemctl suspend
 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 			exit 0

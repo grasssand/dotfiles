@@ -86,13 +86,18 @@ dotfiles:
     src: local/share/fcitx5
     dst: ~/.local/share/fcitx5
     upignore:
-      - rime/build
-      - rime/*.userdb
-      - rime/user.yaml
+    - rime/build
+    - rime/*.userdb
+    - rime/user.yaml
+    - rime/installation.yaml
     cmpignore:
-      - rime/build
-      - rime/*.userdb
-      - rime/user.yaml
+    - rime/build
+    - rime/*.userdb
+    - rime/user.yaml
+    - rime/installation.yaml
+  d_networkmanager-dmenu:
+    src: config/networkmanager-dmenu
+    dst: ~/.config/networkmanager-dmenu
 profiles:
   arch:
     dotfiles:
@@ -115,3 +120,4 @@ profiles:
     - f_betterlockscreenrc
     - f_xresources
     - d_fcitx5
+    - d_networkmanager-dmenu
