@@ -75,6 +75,7 @@ plugins=(
   docker-compose
   extract
   fnm
+  fzf
   git
   pip
   poetry
@@ -116,7 +117,8 @@ export LANGUAGE=zh_CN:en_US
 # fnm
 eval "`fnm env`"
 
+source /home/grasssand/.config/broot/launcher/bash/br
+
 alias dotdrop="dotdrop --cfg=~/.dotfiles/config.yaml"
 alias proxyon="export {HTTP,HTTPS,ALL}_PROXY='http://127.0.0.1:7890'"
 alias proxyoff="unset {HTTP,HTTPS,ALL}_PROXY"
-

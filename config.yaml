@@ -3,8 +3,6 @@ actions:
     install-omz: git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh; git
       clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions;
       git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    install-vimrc: git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime;
-      sh ~/.vim_runtime/install_awesome_vimrc.sh
 config:
   backup: true
   banner: true
@@ -15,23 +13,6 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_imwheelrc:
-    src: imwheelrc
-    dst: ~/.imwheelrc
-  f_vimrc:
-    src: vimrc
-    dst: ~/.vimrc
-  f_my_configs.vim:
-    src: vim_runtime/my_configs.vim
-    dst: ~/.vim_runtime/my_configs.vim
-    actions:
-    - install-vimrc
-  f_xprofile:
-    src: xprofile
-    dst: ~/.xprofile
-  f_xinitrc:
-    src: xinitrc
-    dst: ~/.xinitrc
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
@@ -76,36 +57,15 @@ dotfiles:
     - '[a-zA-Z0-9]*'
     cmpignore:
     - '*'
-  f_betterlockscreenrc:
-    src: config/betterlockscreenrc
-    dst: ~/.config/betterlockscreenrc
   f_xresources:
     src: Xresources
     dst: ~/.Xresources
-  d_fcitx5:
-    src: local/share/fcitx5
-    dst: ~/.local/share/fcitx5
-    upignore:
-    - rime/build
-    - rime/*.userdb
-    - rime/user.yaml
-    - rime/installation.yaml
-    cmpignore:
-    - rime/build
-    - rime/*.userdb
-    - rime/user.yaml
-    - rime/installation.yaml
   d_networkmanager-dmenu:
     src: config/networkmanager-dmenu
     dst: ~/.config/networkmanager-dmenu
 profiles:
   arch:
     dotfiles:
-    - f_imwheelrc
-    - f_vimrc
-    - f_my_configs.vim
-    - f_xprofile
-    - f_xinitrc
     - f_zshrc
     - d_alacritty
     - d_conky
@@ -117,7 +77,5 @@ profiles:
     - d_pip
     - d_polybar
     - d_wallpaper
-    - f_betterlockscreenrc
     - f_xresources
-    - d_fcitx5
     - d_networkmanager-dmenu

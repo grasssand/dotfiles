@@ -224,13 +224,13 @@ exec --no-startup-id xsettingsd &
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id imwheel &
 exec --no-startup-id fcitx5 &
+exec --no-startup-id conky &
 #exec --no-startup-id nm-applet &
 #exec --no-startup-id blueman-applet &
 exec --no-startup-id feh --no-fehbg --bg-fill --randomize ~/.wallpaper/*
-exec --no-startup-id picom -b --experimental-backends
-exec --no-startup-id conky &
-exec --no-startup-id greenclip daemon>/dev/null
-
+exec --no-startup-id picom -b --experimental-backends > /dev/null 2>&1 
+exec --no-startup-id greenclip daemon > /dev/null 2>&1
+exec --no-startup-id easyeffects --gapplication-service > /dev/null 2>&1
 
 # applications
 #bindsym $mod+space exec --no-startup-id xkblayout-state set +1
