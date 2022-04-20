@@ -1,8 +1,10 @@
 actions:
   pre:
-    install-omz: git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh; git
-      clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions;
+    install-omz: git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh;
+      git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions;
       git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    install-spacevim: git clone --depth 1 https://github.com/SpaceVim/SpaceVim.git
+      ~/.SpaceVim; ln -s ~/.SpaceVim ~/.config/nvim
 config:
   backup: true
   banner: true
@@ -63,6 +65,15 @@ dotfiles:
   d_networkmanager-dmenu:
     src: config/networkmanager-dmenu
     dst: ~/.config/networkmanager-dmenu
+  f_npmrc:
+    src: npmrc
+    dst: ~/.npmrc
+    chmod: '600'
+  d_spacevim.d:
+    src: SpaceVim.d
+    dst: ~/.SpaceVim.d
+    actions:
+    - install-spacevim
 profiles:
   arch:
     dotfiles:
@@ -79,3 +90,5 @@ profiles:
     - d_wallpaper
     - f_xresources
     - d_networkmanager-dmenu
+    - f_npmrc
+    - d_spacevim.d

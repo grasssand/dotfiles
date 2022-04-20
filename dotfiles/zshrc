@@ -116,9 +116,11 @@ export LANGUAGE=zh_CN:en_US
 
 # fnm
 eval "`fnm env`"
+alias fnm-update="curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell"
 
-source /home/grasssand/.config/broot/launcher/bash/br
+source ~/.config/broot/launcher/bash/br
 
+alias vim="nvim"
 alias dotdrop="dotdrop --cfg=~/.dotfiles/config.yaml"
 alias proxyon="export {HTTP,HTTPS,ALL}_PROXY='http://127.0.0.1:7890'"
 alias proxyoff="unset {HTTP,HTTPS,ALL}_PROXY"
