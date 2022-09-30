@@ -47,7 +47,7 @@ textbox-prompt-colon {
 	text-color: 					@ac;
 	expand:                         false;
 	str:                            "";
-	font:							"FiraCode Nerd Font 12";
+	font:							"CaskaydiaCove Nerd Font 12";
 }
 
 entry {
