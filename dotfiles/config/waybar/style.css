@@ -1,0 +1,269 @@
+* {
+    font-family: "Maple Mono NF CN", monospace;
+    font-size: 12px;
+    font-weight: 900;
+    border: none;
+    border-radius: 0;
+}
+
+/* 主窗口样式 */
+window#waybar {
+    background-color: rgba(25, 23, 36, 0.9);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* 通用模块样式 */
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#battery,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#disk,
+#bluetooth,
+#backlight,
+#idle_inhibitor,
+#wireplumber,
+#mpd,
+#custom-split,
+#custom-term,
+#custom-filemanager,
+#custom-dev,
+#custom-browser,
+#custom-gammastep,
+#custom-keyboard,
+#custom-launcher,
+#custom-media,
+#custom-power,
+#custom-screenshot,
+#custom-spotify,
+#custom-storage,
+#custom-title,
+#custom-weather {
+    color: #cad3f5;
+    background: none;
+    padding: 0px 6px;
+    border-radius: 4px;
+    min-width: 12px;
+}
+
+/* 鼠标悬停效果 */
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#temperature:hover,
+#tray:hover,
+#disk:hover,
+#bluetooth:hover,
+#backlight:hover,
+#idle_inhibitor:hover,
+#wireplumber:hover,
+#mpd:hover,
+#custom-term:hover,
+#custom-filemanager:hover,
+#custom-dev:hover,
+#custom-browser:hover,
+#custom-gammastep:hover,
+#custom-keyboard:hover,
+#custom-media:hover,
+#custom-screenshot:hover,
+#custom-spotify:hover,
+#custom-storage:hover,
+#custom-title:hover,
+#custom-weather:hover {
+    background-color: rgba(80, 76, 112, 0.6);
+}
+
+/* 工作区按钮样式 */
+#workspaces button {
+    color: #e0def4;
+}
+
+#workspaces button.active {
+    color: #eb6f92;
+    border-bottom: 2px solid #eb6f92;
+}
+
+#workspaces button.urgent {
+    background-color: #b4637a;
+}
+
+#backlight {
+    color: #f4dbd6;
+}
+
+#battery {
+    color: #eed49f;
+}
+
+#battery.charging,
+#battery.full,
+#battery.plugged {
+    color: #a6da95;
+}
+
+#battery.critical:not(.charging) {
+    color: #ed8796;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        color: #8087a2;
+    }
+}
+
+#bluetooth {
+    color: #8aadf4
+}
+
+#bluetooth.disconnected {
+    color: #b8c0e0;
+}
+
+#cpu {
+    color: #89dceb;
+}
+
+#clock {
+    color: #575279;
+    background-color: #faf4ed;
+    border-radius: 20px;
+    margin: 4px;
+}
+
+#disk {
+    color: #b7bdf8;
+}
+
+#language {
+    color: #740864;
+}
+
+#memory {
+    color: #ebcb8b;
+}
+
+#network {
+    color: #b48ead;
+}
+
+#network.disconnected {
+    color: #f53c3c;
+}
+
+#pulseaudio {
+    color: #f5e0dc;
+}
+
+#temperature {
+    color: #a6e3a1;
+}
+
+#temperature.critical {
+    color: #ed8796;
+}
+
+#tray {
+    color: #c6a0f6;
+}
+
+#tray>.passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #ed8796;
+}
+
+#wireplumber {
+    color: #f5e0dc;
+
+}
+
+#custom-launcher {
+    background-color: #c4a7e7;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+#custom-term {
+    color: #eff1f5;
+}
+#custom-filemanager {
+    color: #dc8a78;
+
+}
+#custom-dev {
+    color: #cba6f7;
+
+}
+#custom-browser {
+    color: #04a5e5;
+
+}
+#custom-media {
+    color: #2a5c45;
+    min-width: 100px;
+}
+
+#custom-spotify {
+    background-color: #111827;
+    padding: 3px 12px;
+}
+
+#custom-storage {
+    color: #b7bdf8;
+}
+
+#custom-power {
+    background-color: #eb6f92;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#custom-screenshot {
+    color: #7dc4e4;
+}
+
+#custom-weather.severe {
+    color: #eb937d;
+}
+
+#custom-weather.sunnyDay {
+    color: #c2ca76;
+}
+
+#custom-weather.clearNight {
+    color: #cad3f5;
+}
+
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight {
+    color: #c2ddda;
+}
+
+#custom-weather.rainyDay,
+#custom-weather.rainyNight {
+    color: #5aaca5;
+}
+
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight {
+    color: #d6e7e5;
+}
+
+#custom-weather.default {
+    color: #dbd9d8;
+}

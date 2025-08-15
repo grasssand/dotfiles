@@ -1,0 +1,38 @@
+# 背景与边框
+background-color=#fffaf3af
+border-color=#907aa9
+border-size=2
+border-radius=8
+
+# 字体与文字颜色
+font=sans-serif 10
+text-color=#575279
+
+# 图标与间距
+max-icon-size=64
+padding=10
+margin=20
+
+# 通知行为
+default-timeout=5000
+ignore-timeout=0
+group-by=app-name
+
+# 位置与锚点
+anchor=top-right
+width=400
+height=100
+layer=overlay
+
+# 透明度（需支持 alpha）
+# background-opacity=0.8
+
+[urgency=low]
+border-color=#56949f
+
+[urgency=normal]
+border-color=#d7827e
+
+[urgency=critical]
+border-color=#b4637a
+default-timeout=0

@@ -1,0 +1,66 @@
+# ==== 系统 / 临时文件 ====
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+.cache/
+.tmp/
+logs/
+*.log
+
+# ==== 常见敏感文件 ====
+# SSH / GPG 私钥
+*.pem
+*.key
+*.crt
+*.p12
+*.asc
+id_rsa*
+id_dsa*
+id_ecdsa*
+id_ed25519*
+
+# API Token / 密码文件
+*.env
+.env.*
+.envrc
+*.secret
+*.secrets
+secret.*
+secrets.*
+*.token
+token.*
+
+# 配置文件中可能包含敏感字段
+config.json
+config.yml
+config.yaml
+*.config.json
+*.config.yml
+*.config.yaml
+
+# 认证相关文件
+.auth*
+*.auth
+credentials
+credentials.*
+*.kdbx   # KeePass 数据库
+*.gpg
+*.age
+
+# 数据库文件
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.sql
+*.bak
+
+# ==== 编辑器 / IDE 文件 ====
+.vscode/
+.idea/
+*.iml
+
+# ==== 本地机器唯一标识 ====
+.machine-id

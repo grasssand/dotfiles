@@ -1,0 +1,14 @@
+### 🖥️ Wayland 平台相关变量
+export CLUTTER_BACKEND=wayland
+export XDG_SESSION_TYPE=wayland
+export QT_QPA_PLATFORM=wayland
+export MOZ_ENABLE_WAYLAND=1
+export OZONE_PLATFORM_HINT=auto
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+### 🈶 输入法模块（Fcitx5 优化）
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus

@@ -1,0 +1,11 @@
+### 🌐 语言与区域设置
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_SG
+
+### 🛠️ 自定义路径
+export PATH="$HOME/.local/bin:$PATH"
+
+### ⚙️ 应用程序默认设置
+export TERM="alacritty"
+export BROWSER="microsoft-edge-stable"
+export DOTDROP_CONFIG="$HOME/.dotfiles/config.yaml"

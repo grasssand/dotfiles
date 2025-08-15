@@ -1,13 +1,6 @@
-actions:
-  pre:
-    install-omz: git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh;
-      git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions;
-      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    install-spacevim: git clone --depth 1 https://github.com/SpaceVim/SpaceVim.git
-      ~/.SpaceVim; ln -s ~/.SpaceVim ~/.config/nvim
 config:
   backup: true
-  banner: true
+  banner: false
   create: true
   dotpath: dotfiles
   keepdot: false
@@ -15,80 +8,74 @@ config:
   link_on_import: nolink
   longkey: false
 dotfiles:
-  f_zshrc:
-    src: zshrc
-    dst: ~/.zshrc
-    actions:
-    - install-omz
   d_alacritty:
     src: config/alacritty
     dst: ~/.config/alacritty
-  d_conky:
-    src: config/conky
-    dst: ~/.config/conky
-  d_feh:
-    src: config/feh
-    dst: ~/.config/feh
+  d_cliphist:
+    src: config/cliphist
+    dst: ~/.config/cliphist
   d_fontconfig:
     src: config/fontconfig
     dst: ~/.config/fontconfig
-  d_i3:
-    src: config/i3
-    dst: ~/.config/i3
-  d_mpv:
-    src: config/mpv
-    dst: ~/.config/mpv
-    upignore:
-    - _cache
-    cmpignore:
-    - _cache
-  d_picom:
-    src: config/picom
-    dst: ~/.config/picom
-  d_pip:
-    src: config/pip
-    dst: ~/.config/pip
-  d_polybar:
-    src: config/polybar
-    dst: ~/.config/polybar
-  d_wallpaper:
-    src: wallpaper
-    dst: ~/.wallpaper
-    upignore:
-    - '!67501250_p0.jpg'
-    - '[a-zA-Z0-9]*'
-    cmpignore:
-    - '*'
-  f_xresources:
-    src: Xresources
-    dst: ~/.Xresources
-  d_networkmanager-dmenu:
-    src: config/networkmanager-dmenu
-    dst: ~/.config/networkmanager-dmenu
-  f_npmrc:
-    src: npmrc
-    dst: ~/.npmrc
-    chmod: '600'
-  d_spacevim.d:
-    src: SpaceVim.d
-    dst: ~/.SpaceVim.d
-    actions:
-    - install-spacevim
+  d_hypr:
+    src: config/hypr
+    dst: ~/.config/hypr
+  d_mako:
+    src: config/mako
+    dst: ~/.config/mako
+  d_nwg-drawer:
+    src: config/nwg-drawer
+    dst: ~/.config/nwg-drawer
+  d_paru:
+    src: config/paru
+    dst: ~/.config/paru
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
+  d_uwsm:
+    src: config/uwsm
+    dst: ~/.config/uwsm
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
+  d_wlogout:
+    src: config/wlogout
+    dst: ~/.config/wlogout
+  f_profile:
+    src: profile
+    dst: ~/.profile
+  f_config.fish:
+    src: config/fish/config.fish
+    dst: ~/.config/fish/config.fish
+  f_fish_plugins:
+    src: config/fish/fish_plugins
+    dst: ~/.config/fish/fish_plugins
+  f_pip.conf:
+    src: config/pip/pip.conf
+    dst: ~/.config/pip/pip.conf
+  f_uv.toml:
+    src: config/uv/uv.toml
+    dst: ~/.config/uv/uv.toml
+  f_microsoft-edge-stable-flags.conf:
+    src: config/microsoft-edge-stable-flags.conf
+    dst: ~/.config/microsoft-edge-stable-flags.conf
 profiles:
-  arch:
+  cachyos:
     dotfiles:
-    - f_zshrc
     - d_alacritty
-    - d_conky
-    - d_feh
+    - d_cliphist
     - d_fontconfig
-    - d_i3
-    - d_mpv
-    - d_picom
-    - d_pip
-    - d_polybar
-    - d_wallpaper
-    - f_xresources
-    - d_networkmanager-dmenu
-    - f_npmrc
-    - d_spacevim.d
+    - d_hypr
+    - d_mako
+    - d_nwg-drawer
+    - d_paru
+    - d_rofi
+    - d_uwsm
+    - d_waybar
+    - d_wlogout
+    - f_profile
+    - f_config.fish
+    - f_fish_plugins
+    - f_pip.conf
+    - f_uv.toml
+    - f_microsoft-edge-stable-flags.conf
