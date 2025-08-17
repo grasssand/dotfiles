@@ -1,9 +1,8 @@
 jorgebucaran/fisher
-jorgebucaran/autopair.fish
-franciscolourenco/done
-jethrokuan/fzf
-jethrokuan/z
-jhillyerd/plugin-git
+pure-fish/pure
 meaningful-ooo/sponge
 oh-my-fish/plugin-extract
-pure-fish/pure
+jhillyerd/plugin-git
+jethrokuan/fzf
+jorgebucaran/autopair.fish
+franciscolourenco/done

@@ -8,4 +8,3 @@ export PATH="$HOME/.local/bin:$PATH"
 ### ⚙️ 应用程序默认设置
 export TERM="alacritty"
 export BROWSER="microsoft-edge-stable"
-export DOTDROP_CONFIG="$HOME/.dotfiles/config.yaml"

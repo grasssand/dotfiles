@@ -59,6 +59,9 @@ dotfiles:
   f_microsoft-edge-stable-flags.conf:
     src: config/microsoft-edge-stable-flags.conf
     dst: ~/.config/microsoft-edge-stable-flags.conf
+  f_dotdrop.fish:
+    src: config/fish/completions/dotdrop.fish
+    dst: ~/.config/fish/completions/dotdrop.fish
 profiles:
   cachyos:
     dotfiles:
@@ -79,3 +82,4 @@ profiles:
     - f_pip.conf
     - f_uv.toml
     - f_microsoft-edge-stable-flags.conf
+    - f_dotdrop.fish

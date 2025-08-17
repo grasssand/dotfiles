@@ -1,10 +1,14 @@
 # https://github.com/CachyOS/cachyos-fish-config/blob/main/cachyos-config.fish
 
+set -gx LANG zh_CN.UTF-8
+set -gx LANGUAGE zh_CN
+set -gx DOTDROP_CONFIG $HOME/.dotfiles/config.yaml
+
 # Format man pages
-set -xg MANROFFOPT "-c"
-set -xg MANPAGER "sh -c 'col -bx | bat -l man -p --theme=\"OneHalfDark\"'"
+set -gx MANROFFOPT "-c"
+set -gx MANPAGER "sh -c 'col -bx | bat -l man -p --theme=\"OneHalfDark\"'"
 if not type -q bat
-    set -xg MANPAGER "less -R"
+    set -gx MANPAGER "less -R"
 end
 
 # Plugins settings
@@ -63,6 +67,9 @@ function untar
             return 1
     end
 end
+
+# Init zoxide
+zoxide init fish | source
 
 ## Useful aliases
 # Replace ls with eza
