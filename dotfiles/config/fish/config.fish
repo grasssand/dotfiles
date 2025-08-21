@@ -115,5 +115,6 @@ alias jctl="journalctl -p 3 -xb"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 # Other alias
+alias cat='bat --paging=never'
 alias fud='fisher update'
 alias x='extract'

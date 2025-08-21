@@ -6,5 +6,6 @@ export LANGUAGE=zh_CN:en_SG
 export PATH="$HOME/.local/bin:$PATH"
 
 ### ⚙️ 应用程序默认设置
-export TERM="alacritty"
+export TERM="kitty"
+export EDITOR="nvim"
 export BROWSER="microsoft-edge-stable"

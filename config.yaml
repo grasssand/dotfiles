@@ -62,6 +62,15 @@ dotfiles:
   f_dotdrop.fish:
     src: config/fish/completions/dotdrop.fish
     dst: ~/.config/fish/completions/dotdrop.fish
+  d_bat:
+    src: config/bat
+    dst: ~/.config/bat
+  d_dust:
+    src: config/dust
+    dst: ~/.config/dust
+  d_kitty:
+    src: config/kitty
+    dst: ~/.config/kitty
 profiles:
   cachyos:
     dotfiles:
@@ -83,3 +92,6 @@ profiles:
     - f_uv.toml
     - f_microsoft-edge-stable-flags.conf
     - f_dotdrop.fish
+    - d_bat
+    - d_dust
+    - d_kitty
