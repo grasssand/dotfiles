@@ -1,0 +1,40 @@
+### 语言与区域设置
+export LANG=zh_CN.UTF-8
+export LANGUAGE=zh_CN:en_US
+
+### 自定义路径
+export PATH="$HOME/.local/bin:$PATH"
+
+### 光标与主题设置
+export XCURSOR_THEME="Graphite-light-nord-cursors"
+export XCURSOR_SIZE=22
+export HYPRCURSOR_THEME="Graphite-light-nord-cursors"
+export HYPRCURSOR_SIZE=22
+export QT_CURSOR_SIZE=22
+export QT_STYLE_OVERRIDE=kvantum
+export QT_QPA_PLATFORMTHEME=qt6ct
+
+### Wayland 相关变量
+export CLUTTER_BACKEND=wayland
+export XDG_SESSION_TYPE=wayland
+export GDK_BACKEND=wayland,x11,*
+export QT_QPA_PLATFORM=wayland;xcb
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export OZONE_PLATFORM_HINT=auto
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+### 输入法模块
+#export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+
+### 应用程序
+export TERM=ghostty
+export EDITOR=nvim
+export BROWSER=zen-browser
+export DOTDROP_CONFIG="$HOME/.dotfiles/config.yaml"

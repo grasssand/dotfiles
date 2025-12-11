@@ -1,0 +1,388 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+    "layer": "top",
+    "position": "top",
+    // "height": 20,
+    "margin-top": 4,
+    // "margin-bottom": 4,
+    "margin-left": 4,
+    "margin-right": 4,
+    "spacing": 6,
+    "modules-left": [
+        "custom/launcher",
+        "custom/split",
+        "hyprland/workspaces",
+        "custom/split",
+        "custom/term",
+        "custom/filemanager",
+        "custom/dev",
+        "custom/browser",
+        "custom/split",
+        "cpu",
+        "temperature",
+        "memory",
+        "disk"
+    ],
+    "modules-center": [
+        // "hyprland/window",
+        // "custom/weather",
+        "clock"
+        //"custom/gammastep"
+    ],
+    "modules-right": [
+        "custom/media",
+        "backlight",
+        "battery",
+        "wireplumber",
+        // "bluetooth",
+        // "network",
+        "tray",
+        "custom/split",
+        "custom/screenshot",
+        "custom/split",
+        "custom/power"
+    ],
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃝",
+            "󰃟",
+            "󰃠"
+        ]
+    },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "vertical",
+        "device": "intel_backlight"
+    },
+    "battery": {
+        "states": {
+            "good": 85,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰢝 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "on-click-right": "tlpui"
+    },
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-off": "󰂲 {status}",
+        "format-connected": "󰂱 {device_alias}",
+        "format-connected-battery": "󰥂 {device_alias} {device_battery_percentage}%",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click-right": "blueman-manager"
+    },
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": " {:L%Y年%B%d日 %A  %R}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_down",
+            "on-scroll-down": "shift_up"
+        }
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {usage}%",
+        // "format": "{max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
+        "on-click-right": "ghostty -e btop"
+    },
+    "disk": {
+        "interval": 60,
+        "format": " {percentage_used}%",
+        "path": "/",
+        "unit": "GB",
+        "tooltip-format": "Path: {path}\nTotal: {total}\nUsed: {used}\nFree {free}"
+    },
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "default": "󰌽"
+        },
+        // "persistent-workspaces": {
+        //     "*": 4,
+        // },
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null"
+    },
+    "hyprland/window": {
+        "max-length": 100,
+        "separate-outputs": true
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰈈",
+            "deactivated": "󰈉"
+        },
+        "tooltip": "true"
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "tooltip-format": "Mem: {used} / {total} GiB\nSwap: {swapUsed} / {swapTotal} GiB",
+        "on-click-right": "ghostty -e htop"
+    },
+    "mpd": {
+        "max-length": 25,
+        "format": "<span foreground='#bb9af7'>󰝚</span> {title}",
+        "format-paused": "󰝚 {title}",
+        "format-stopped": "<span foreground='#bb9af7'>󰝛</span>",
+        "format-disconnected": "",
+        "on-click": "mpc --quiet toggle",
+        "on-click-right": "mpc update; mpc ls | mpc add",
+        "on-click-middle": "ghostty -e ncmpcpp",
+        "on-scroll-up": "mpc --quiet prev",
+        "on-scroll-down": "mpc --quiet next",
+        "smooth-scrolling-threshold": 5,
+        "tooltip-format": "{title} - {artist} ({elapsedTime:%M:%S}/{totalTime:%H:%M:%S})"
+    },
+    "network": {
+        "format": "󰛳 {ifname}",
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-ethernet": "󰱓 {ifname}",
+        "format-linked": "󰛵 {ifname}(No IP)",
+        "format-disconnected": "󰅛",
+        "format-alt": "󰀂 {ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "󰕒 {bandwidthUpBits} 󰇚 {bandwidthDownBits}\n{ifname}\n{ipaddr}/{cidr}\n",
+        "tooltip-format-wifi": "󰖩 {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
+        "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+        "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)"
+    },
+    "pulseaudio": {
+        "scroll-step": 2, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "󰝟 {icon}",
+        "format-muted": "󰖁 0%",
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭",
+        "format-icons": {
+            "headphone": "󰋋 ",
+            "hands-free": "󰥰 ",
+            "headset": "󰋎 ",
+            "phone": "󰏲 ",
+            "portable": "󰏲 ",
+            "car": "󰄍 ",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "on-click-right": "pavucontrol",
+        "on-click-middle": "amixer sset Master toggle"
+    },
+    "temperature": {
+        // "thermal-zone": 1,
+        //"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            "",
+            ""
+        ]
+        // "on-click-right": "xsensors"
+    },
+    "tray": {
+        "icon-size": 12,
+        "spacing": 12
+    },
+    "wireplumber": {
+        "scroll-step": 2, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 0%",
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭",
+        //"format-muted": "<span foreground='#fab387'> </span>",
+        //"format-icons": [ "<span foreground='#fab387'></span>" ]
+        "format-icons": {
+            "headphone": "󰋋 ",
+            "hands-free": "󰥰 ",
+            "headset": "󰋎 ",
+            "phone": "󰏲 ",
+            "portable": "󰏲 ",
+            "car": "󰄍 ",
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "on-click-right": "pwvucontrol",
+        "on-click-middle": "amixer sset Master toggle 1>/dev/null"
+    },
+    "custom/split": {
+        "format": "⏽",
+        "tooltip": false
+    },
+    "custom/term": {
+        "format": "",
+        "tooltip-format": "Terminal",
+        "on-click": "ghostty"
+    },
+    "custom/filemanager": {
+        "format": "",
+        "tooltip-format": "FileManager",
+        "on-click": "thunar"
+    },
+    "custom/dev": {
+        "format": "",
+        "tooltip-format": "Editor",
+        "on-click": "code"
+    },
+    "custom/browser": {
+        "format": "",
+        "tooltip-format": "Browser",
+        "on-click": "zen-browser"
+    },
+    "custom/gammastep": {
+        "interval": 5,
+        "return-type": "json",
+        "exec": {
+            "pre": "if unit_status=\"$(systemctl --user is-active gammastep)\"; then\nstatus=\"$unit_status ($(journalctl --user -u gammastep.service -g 'Period: ' | tail -1 | cut -d ':' -f6 | xargs))\"\nelse\nstatus=\"$unit_status\"\nfi",
+            "alt": "${status:-inactive}",
+            "tooltip": "Gammastep is $status"
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "activating": "󰁪 ",
+            "deactivating": "󰁪 ",
+            "inactive": "? ",
+            "active (Night)": " ",
+            "active (Nighttime)": " ",
+            "active (Transition (Night)": " ",
+            "active (Transition (Nighttime)": " ",
+            "active (Day)": " ",
+            "active (Daytime)": " ",
+            "active (Transition (Day)": " ",
+            "active (Transition (Daytime)": " "
+        },
+        "on-click": "systemctl --user is-active gammastep && systemctl --user stop gammastep || systemctl --user start gammastep"
+    },
+    "custom/keyboard": {
+        "format": "󰌌 {}",
+        "interval": 1,
+        "exec": "$HOME/.config/waybar/get_kbdlayout.sh"
+    },
+    "custom/launcher": {
+        "format": " 󰀻 ",
+        "tooltip": false,
+        "on-click": "nwg-drawer",
+        "on-click-right": "rofi -show drun"
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 40,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl stop",
+        "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "exec": "~/.config/waybar/modules/mediaplayer.py 2> /dev/null",
+        "exec-if": "pgrep spotify"
+    },
+    "custom/power": {
+        "format": " 󰐥 ",
+        "tooltip": false,
+        "on-click": "wlogout"
+    },
+    "custom/screenshot": {
+        "format": "󰄀",
+        "tooltip-format": "Left: Screenshot Area\nRight: Screenshot Screen\nMiddle: Random Wallpaper",
+        "on-click": "grimblast save area - | satty --filename -",
+        "on-click-right": "grimblast save screen - | satty --filename -",
+        "on-click-middle": "~/.config/hypr/scripts/random-wallpaper.sh"
+    },
+    "custom/spotify": {
+        "exec": "~/.config/waybar/mediaplayer.py --player spotify",
+        "format": "󰓇 {}",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    "custom/storage": {
+        "format": " {}",
+        "format-alt": " {percentage}%",
+        "format-alt-click": "click-right",
+        "return-type": "json",
+        "interval": 60,
+        "exec": "~/.config/waybar/modules/storage.sh"
+    },
+    "custom/title": {
+        "format": "{}",
+        "interval": 0,
+        "return-type": "json",
+        "max-length": 35,
+        "exec": "$HOME/.scripts/title"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "format-alt": "{alt}: {}",
+        "format-alt-click": "click-right",
+        "interval": 3600,
+        // "exec": "curl -s 'https://wttr.in/?format=1'",
+        //"return-type": "json",
+        "exec": "~/.config/waybar/modules/weather.sh",
+        "exec-if": "ping wttr.in -c1"
+    }
+}

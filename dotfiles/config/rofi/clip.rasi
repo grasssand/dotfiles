@@ -1,0 +1,71 @@
+@theme "themes/rose-pine-dawn.rasi"
+
+configuration {
+	font:							"Maple Mono NF CN 8";
+    show-icons:                     false;
+    display-drun: 					" ";
+}
+
+window {
+	border:							1px;
+    border-color:                   @pur;
+    border-radius:                  0px;
+	width:							350px;
+    padding:                        4px;
+    location:                       southeast;
+    x-offset:                       -40;
+    y-offset:                       -40;
+}
+
+prompt {
+    spacing:                        0;
+}
+
+entry {
+    expand:                         true;
+    placeholder-color:              @cmt;
+    placeholder:                    "";
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ entry ];
+    expand:                         false;
+	border:							0px 0px 1px 0px;
+	border-color:					@cya;
+    margin:                         0px;
+    padding:                        4px;
+}
+
+listview {
+    columns:                        1;
+    lines:                          8;
+	border:							0;
+    border-radius:                  0;
+    spacing:                        0;
+    padding:                        0;
+	scrollbar:                      true;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    children:                       [ inputbar, listview ];
+    spacing:                       	0px;
+    padding:                        0px;
+	border:							0px;
+    border-radius:                  0px;
+}
+
+element {
+    orientation:                    horizontal;
+	padding: 						0;
+}
+
+element-text {
+    text-color:                     inherit;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0;
+}

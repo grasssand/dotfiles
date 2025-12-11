@@ -1,0 +1,75 @@
+@theme "themes/rose-pine-dawn.rasi"
+
+configuration {
+	font:							"MiSans VF 10";
+    show-icons:                     true;
+	icon-theme: 					"Tela-circle-nord";
+    display-drun: 					" ";
+    click-to-exit:                  true;
+    kb-cancel:                      "Escape,Super_L,Super_R";
+}
+
+window {
+	border:							0px;
+    border-radius:                  0px;
+	width:							800px;
+    padding:                        20px;
+    location:                       center;
+}
+
+prompt {
+    spacing:                        0;
+}
+
+entry {
+    expand:                         true;
+    placeholder-color:              @cmt;
+    placeholder:                    "Search...";
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ prompt, entry ];
+    expand:                         false;
+	border:							0px 0px 1px 0px;
+	border-color:					@cya;
+    margin:                         0px;
+    padding:                        10px;
+}
+
+listview {
+    columns:                        2;
+    lines:                          8;
+	border:							0px;
+    border-radius:                  0px;
+    spacing:                        2px;
+    padding:                        2px;
+	scrollbar:                      false;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    children:                       [ inputbar, listview ];
+    spacing:                       	5px;
+    padding:                        5px;
+	border:							0px;
+    border-radius:                  0px;
+}
+
+element {
+    orientation:                    horizontal;
+	padding: 						8px;
+}
+
+element-icon {
+    text-color:                     inherit;
+    size:                           24px;
+}
+
+element-text {
+    text-color:                     inherit;
+    expand:                         true;
+    margin:                         0px 2px;
+}

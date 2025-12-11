@@ -1,0 +1,51 @@
+window {
+    background-color: rgba(25, 23, 36, 0.95); /* base */
+    color: #e0def4; /* text */
+}
+
+/* 搜索框样式 */
+entry {
+    background-color: rgba(40, 38, 56, 0.5); /* overlay */
+    color: #e0def4;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+/* 按钮与图像默认样式 */
+button, image {
+    background: none;
+    border: none;
+}
+
+/* 悬停效果：柔和高亮 */
+button:hover {
+    background-color: rgba(80, 76, 112, 0.4); /* highlight */
+}
+
+/* 分类按钮样式 */
+#category-button {
+    margin: 0 10px;
+    color: #c4a7e7; /* iris */
+    font-weight: bold;
+}
+
+/* 固定区块分隔线 */
+#pinned-box {
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #eb6f92; /* love */
+}
+
+/* 文件区块样式 */
+#files-box {
+    padding: 5px;
+    border: 1px dotted #9ccfd8; /* foam */
+    border-radius: 12px;
+    background-color: rgba(45, 43, 60, 0.3); /* subtle overlay */
+}
+
+/* 数学结果标签 */
+#math-label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #f6c177; /* gold */
+}
