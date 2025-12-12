@@ -4,7 +4,7 @@
     // -------------------------------------------------------------------------
     "layer": "top",
     "position": "top",
-    // "height": 20,
+    "height": 36,
     "margin-top": 4,
     // "margin-bottom": 4,
     "margin-left": 4,
@@ -27,12 +27,12 @@
     ],
     "modules-center": [
         // "hyprland/window",
-        // "custom/weather",
         "clock"
         //"custom/gammastep"
     ],
     "modules-right": [
         "custom/media",
+        "custom/weather",
         "backlight",
         "battery",
         "wireplumber",
@@ -134,7 +134,7 @@
         "format": " {percentage_used}%",
         "path": "/",
         "unit": "GB",
-        "tooltip-format": "Path: {path}\nTotal: {total}\nUsed: {used}\nFree {free}"
+        "tooltip-format": "Path : {path}\nTotal: {total}\nUsed : {used}\nFree : {free}"
     },
     "hyprland/workspaces": {
         "active-only": false,
@@ -173,7 +173,7 @@
     "memory": {
         "interval": 30,
         "format": " {}%",
-        "tooltip-format": "Mem: {used} / {total} GiB\nSwap: {swapUsed} / {swapTotal} GiB",
+        "tooltip-format": "Mem : {used} / {total} GiB\nSwap: {swapUsed} / {swapTotal} GiB",
         "on-click-right": "ghostty -e htop"
     },
     "mpd": {
@@ -347,7 +347,7 @@
     },
     "custom/screenshot": {
         "format": "󰄀",
-        "tooltip-format": "Left: Screenshot Area\nRight: Screenshot Screen\nMiddle: Random Wallpaper",
+        "tooltip-format": "Left  : Screenshot Area\nRight : Screenshot Screen\nMiddle: Random Wallpaper",
         "on-click": "grimblast save area - | satty --filename -",
         "on-click-right": "grimblast save screen - | satty --filename -",
         "on-click-middle": "~/.config/hypr/scripts/random-wallpaper.sh"
@@ -375,14 +375,23 @@
         "max-length": 35,
         "exec": "$HOME/.scripts/title"
     },
+    // "custom/weather": {
+    //     "format": "{}",
+    //     "format-alt": "{alt}: {}",
+    //     "format-alt-click": "click-right",
+    //     "interval": 3600,
+    //     // "exec": "curl -s 'https://wttr.in/?format=1'",
+    //     //"return-type": "json",
+    //     "exec": "~/.config/waybar/modules/weather.sh",
+    //     "exec-if": "ping wttr.in -c1"
+    // }
     "custom/weather": {
-        "format": "{}",
-        "format-alt": "{alt}: {}",
-        "format-alt-click": "click-right",
+        "exec": "~/.config/waybar/modules/weather.py",
+        "return-type": "json",
         "interval": 3600,
-        // "exec": "curl -s 'https://wttr.in/?format=1'",
-        //"return-type": "json",
-        "exec": "~/.config/waybar/modules/weather.sh",
-        "exec-if": "ping wttr.in -c1"
+        "format": "{}",
+        "signal": 16,
+        // "on-click-middle": "xdg-open https://weather.com/zh-CN/weather/today/l/$WEATHER_LOCATION_ID",
+        "on-click-right": "pkill -SIGRTMIN+16 waybar"
     }
 }

@@ -1,5 +1,5 @@
 * {
-    font-family: "Maple Mono NF CN", monospace;
+    font-family: "Maple Mono NF CN", FontAwesome, monospace;
     font-size: 12px;
     font-weight: 900;
     border: none;
@@ -11,7 +11,7 @@ window#waybar {
     background-color: rgba(25, 23, 36, 0.9);
     color: white;
     border-radius: 20px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4); */
 }
 
 /* 通用模块样式 */
@@ -237,33 +237,47 @@ window#waybar {
     color: #7dc4e4;
 }
 
-#custom-weather.severe {
-    color: #eb937d;
+/* 默认状态颜色 (Text) */
+#custom-weather.weather {
+    color: #e0def4;
 }
 
-#custom-weather.sunnyDay {
-    color: #c2ca76;
+/* 晴天/Clear (Gold) */
+#custom-weather.sunny {
+    color: #f6c177;
 }
 
-#custom-weather.clearNight {
-    color: #cad3f5;
+/* 晴朗夜晚 (Iris) */
+#custom-weather.night {
+    color: #c4a7e7;
 }
 
-#custom-weather.cloudyFoggyDay,
-#custom-weather.cloudyFoggyNight {
-    color: #c2ddda;
+/* 多云 (Subtle) */
+#custom-weather.cloudy {
+    color: #908caa;
 }
 
-#custom-weather.rainyDay,
-#custom-weather.rainyNight {
-    color: #5aaca5;
+/* 雨天 (Foam) */
+#custom-weather.rainy {
+    color: #9ccfd8;
 }
 
-#custom-weather.showyIcyDay,
-#custom-weather.snowyIcyNight {
-    color: #d6e7e5;
+/* 雪天 (Text - 保持亮白) */
+#custom-weather.snowy {
+    color: #e0def4;
 }
 
-#custom-weather.default {
-    color: #dbd9d8;
+/* 暴风雨 (Love - 红色) */
+#custom-weather.stormy {
+    color: #eb6f92;
+}
+
+/* 有雾 (Muted - 灰色) */
+#custom-weather.foggy {
+    color: #6e6a86;
+}
+
+/* 大风 (Pine - 深蓝色) */
+#custom-weather.windy {
+    color: #31748f;
 }

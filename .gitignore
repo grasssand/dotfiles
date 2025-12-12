@@ -64,3 +64,5 @@ credentials.*
 
 # ==== 本地机器唯一标识 ====
 .machine-id
+
+secrets*
