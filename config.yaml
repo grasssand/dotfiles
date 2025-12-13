@@ -9,7 +9,8 @@ config:
   longkey: false
 actions:
   pre:
-    install_rime_frost: git clone --depth 1 https://github.com/gaboolic/rime-frost ~/.local/share/fcitx5/rime/
+    install_rime_frost: git clone --depth 1 
+      https://github.com/gaboolic/rime-frost ~/.local/share/fcitx5/rime/
 dotfiles:
   d_alacritty:
     src: config/alacritty
@@ -88,6 +89,9 @@ dotfiles:
   f_rime_frost.custom.yaml:
     src: local/share/fcitx5/rime/rime_frost.custom.yaml
     dst: ~/.local/share/fcitx5/rime/rime_frost.custom.yaml
+  d_user:
+    src: config/systemd/user
+    dst: ~/.config/systemd/user
 profiles:
   cachyos:
     dotfiles:
@@ -116,3 +120,4 @@ profiles:
     - d_themes
     - f_default.custom.yaml
     - f_rime_frost.custom.yaml
+    - d_user
