@@ -1,0 +1,17 @@
+[Unit]
+Description=Kanshi Wayland output manager
+Documentation=man:kanshi(1) man:kanshi(5)
+# order startup after WM
+After=graphical-session.target
+
+[Service]
+Type=exec
+# Repurpose XDG Autostart filtering
+ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "wlroots:sway:Wayfire:labwc:Hyprland" ""
+ExecStart=/usr/bin/kanshi
+ExecReload=kill -SIGHUP $MAINPID
+Restart=on-failure
+Slice=background-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target
