@@ -25,6 +25,7 @@ file-roller
 fish
 fisher
 fzf
+gdu
 ghostty
 git-delta
 gping
@@ -38,6 +39,7 @@ hypridle
 hyprland
 hyprlock
 hyprpaper
+hyprpicker
 hyprpolkitagent
 imagemagick
 iwd
