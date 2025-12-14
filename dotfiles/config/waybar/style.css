@@ -39,6 +39,7 @@ window#waybar {
 #custom-keyboard,
 #custom-launcher,
 #custom-media,
+#custom-notification,
 #custom-power,
 #custom-screenshot,
 #custom-spotify,
@@ -73,6 +74,7 @@ window#waybar {
 #custom-gammastep:hover,
 #custom-keyboard:hover,
 #custom-media:hover,
+#custom-notification:hover,
 #custom-screenshot:hover,
 #custom-spotify:hover,
 #custom-storage:hover,
@@ -215,7 +217,10 @@ window#waybar {
 }
 #custom-media {
     color: #2a5c45;
-    min-width: 100px;
+}
+
+#custom-notification {
+    color: #e0def4;
 }
 
 #custom-spotify {

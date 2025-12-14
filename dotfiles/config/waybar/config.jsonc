@@ -41,6 +41,7 @@
         "tray",
         "custom/split",
         "custom/screenshot",
+        "custom/notification",
         "custom/split",
         "custom/power"
     ],
@@ -84,7 +85,7 @@
             "󰂂",
             "󰁹"
         ],
-        "on-click-right": "tlpui"
+        "on-click-right": "uwsm app -- tlpui"
     },
     "bluetooth": {
         "format": "󰂯 {status}",
@@ -96,7 +97,7 @@
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-        "on-click-right": "blueman-manager"
+        "on-click-right": "uwsm app -- blueman-manager"
     },
     "clock": {
         "format": " {:%H:%M}",
@@ -127,14 +128,15 @@
         "interval": 10,
         "format": " {usage}%",
         // "format": "{max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
-        "on-click-right": "ghostty -e btop"
+        "on-click-right": "uwsm app -- $TERMINAL -e btop"
     },
     "disk": {
         "interval": 60,
         "format": " {percentage_used}%",
         "path": "/",
         "unit": "GB",
-        "tooltip-format": "Path : {path}\nTotal: {total}\nUsed : {used}\nFree : {free}"
+        "tooltip-format": "Path : {path}\nTotal: {total}\nUsed : {used}\nFree : {free}",
+        "on-click-right": "uwsm app -- $TERMINAL -e gdu /"
     },
     "hyprland/workspaces": {
         "active-only": false,
@@ -174,7 +176,7 @@
         "interval": 30,
         "format": " {}%",
         "tooltip-format": "Mem : {used} / {total} GiB\nSwap: {swapUsed} / {swapTotal} GiB",
-        "on-click-right": "ghostty -e htop"
+        "on-click-right": "uwsm app -- $TERMINAL -e htop"
     },
     "mpd": {
         "max-length": 25,
@@ -184,7 +186,7 @@
         "format-disconnected": "",
         "on-click": "mpc --quiet toggle",
         "on-click-right": "mpc update; mpc ls | mpc add",
-        "on-click-middle": "ghostty -e ncmpcpp",
+        "on-click-middle": "$TERMINAL -e ncmpcpp",
         "on-scroll-up": "mpc --quiet prev",
         "on-scroll-down": "mpc --quiet next",
         "smooth-scrolling-threshold": 5,
@@ -201,30 +203,6 @@
         "tooltip-format-wifi": "󰖩 {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
         "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
         "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)"
-    },
-    "pulseaudio": {
-        "scroll-step": 2, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": "󰝟 {icon}",
-        "format-muted": "󰖁 0%",
-        "format-source": "󰍬",
-        "format-source-muted": "󰍭",
-        "format-icons": {
-            "headphone": "󰋋 ",
-            "hands-free": "󰥰 ",
-            "headset": "󰋎 ",
-            "phone": "󰏲 ",
-            "portable": "󰏲 ",
-            "car": "󰄍 ",
-            "default": [
-                "󰕿",
-                "󰖀",
-                "󰕾"
-            ]
-        },
-        "on-click-right": "pavucontrol",
-        "on-click-middle": "amixer sset Master toggle"
     },
     "temperature": {
         // "thermal-zone": 1,
@@ -265,8 +243,8 @@
                 "󰕾"
             ]
         },
-        "on-click-right": "pwvucontrol",
-        "on-click-middle": "amixer sset Master toggle 1>/dev/null"
+        "on-click-right": "uwsm app -- pwvucontrol",
+        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle>/dev/null"
     },
     "custom/split": {
         "format": "⏽",
@@ -275,22 +253,24 @@
     "custom/term": {
         "format": "",
         "tooltip-format": "Terminal",
-        "on-click": "ghostty"
+        "on-click": "uwsm app -- $TERMINAL"
     },
     "custom/filemanager": {
         "format": "",
         "tooltip-format": "FileManager",
-        "on-click": "thunar"
+        "on-click": "uwsm app -- $FILE_MANAGER",
+        "on-click-right": "uwsm app -- $TERMINAL -e yazi"
     },
     "custom/dev": {
         "format": "",
         "tooltip-format": "Editor",
-        "on-click": "code"
+        "on-click": "uwsm app -- code",
+        "on-click-right": "uwsm app -- $TERMINAL -e $EDITOR"
     },
     "custom/browser": {
         "format": "",
         "tooltip-format": "Browser",
-        "on-click": "zen-browser"
+        "on-click": "uwsm app -- $BROWSER"
     },
     "custom/gammastep": {
         "interval": 5,
@@ -324,8 +304,8 @@
     "custom/launcher": {
         "format": " 󰀻 ",
         "tooltip": false,
-        "on-click": "nwg-drawer",
-        "on-click-right": "rofi -show drun"
+        "on-click": "uwsm app -- nwg-drawer",
+        "on-click-right": "uwsm app -- rofi -show drun"
     },
     "custom/media": {
         "format": "{icon} {text}",
@@ -340,6 +320,26 @@
         "exec": "~/.config/waybar/modules/mediaplayer.py 2> /dev/null",
         "exec-if": "pgrep spotify"
     },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "{icon}",
+        "format-icons": {
+        "notification": "󱅫",
+        "none": "󰂜",
+        "dnd-notification": "󰂠",
+        "dnd-none": "󰪓",
+        "inhibited-notification": "󰂛",
+        "inhibited-none": "󰪑",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
     "custom/power": {
         "format": " 󰐥 ",
         "tooltip": false,
@@ -348,8 +348,8 @@
     "custom/screenshot": {
         "format": "󰄀",
         "tooltip-format": "Left  : Screenshot Area\nRight : Screenshot Screen\nMiddle: Random Wallpaper",
-        "on-click": "grimblast save area - | satty --filename -",
-        "on-click-right": "grimblast save screen - | satty --filename -",
+        "on-click": "grimblast --notify --freeze save area - | satty --filename -",
+        "on-click-right": "grimblast --notify --freeze save output - | satty --filename -",
         "on-click-middle": "~/.config/hypr/scripts/random-wallpaper.sh"
     },
     "custom/spotify": {
