@@ -11,7 +11,7 @@ export XCURSOR_SIZE=22
 export HYPRCURSOR_THEME="Graphite-light-nord-cursors"
 export HYPRCURSOR_SIZE=22
 export QT_CURSOR_SIZE=22
-export QT_STYLE_OVERRIDE=kvantum
+# export QT_STYLE_OVERRIDE=kvantum
 export QT_QPA_PLATFORMTHEME=qt6ct
 
 ### Wayland 相关变量
@@ -34,7 +34,8 @@ export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
 
 ### 应用程序
-export TERM=ghostty
+export TERMINAL=ghostty
 export EDITOR=nvim
+export FILE_MANAGER=thunar
 export BROWSER=zen-browser
 export DOTDROP_CONFIG="$HOME/.dotfiles/config.yaml"

@@ -1,2 +1,4 @@
 export HYPRLAND_TRACE=0
 export AQ_TRACE=0
+
+export GRIMBLAST_EDITOR="satty --filename"
