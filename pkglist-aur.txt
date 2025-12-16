@@ -1,2 +1,4 @@
+clipse
 colloid-nord-gtk-theme-git
+rose-pine-gtk-theme
 visual-studio-code-bin
