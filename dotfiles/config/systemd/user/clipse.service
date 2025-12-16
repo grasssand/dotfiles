@@ -1,14 +1,15 @@
 [Unit]
-Description=Clipboard history "manager" for wayland
-Documentation=https://github.com/sentriz/cliphist
+Description= Configurable TUI clipboard manager for Unix
+Documentation=https://github.com/savedra1/clipse
 # order startup after WM
 After=graphical-session.target
 
 [Service]
-Type=exec
+Type=oneshot
+RemainAfterExit=true
 # Repurpose XDG Autostart filtering
 ExecCondition=/lib/systemd/systemd-xdg-autostart-condition "wlroots:sway:Wayfire:labwc:Hyprland" ""
-ExecStart=wl-paste --watch cliphist -max-items 10 store
+ExecStart=clipse -listen
 Restart=on-failure
 Slice=app-graphical.slice
 
