@@ -1,12 +1,14 @@
 window {
-    background-color: rgba(25, 23, 36, 0.95); /* base */
-    color: #e0def4; /* text */
+    background-color: rgba(250, 244, 237, 0.9); /* base */
+    color: #575279; /* text */
+    border-radius: 10px;
 }
 
 /* 搜索框样式 */
 entry {
-    background-color: rgba(40, 38, 56, 0.5); /* overlay */
-    color: #e0def4;
+    background-color: rgba(242, 233, 222, 1.0); /* overlay */
+    color: #575279;
+    border: 1px solid #d7827e;
     border-radius: 6px;
     padding: 4px;
 }
@@ -15,37 +17,38 @@ entry {
 button, image {
     background: none;
     border: none;
+    box-shadow: none;
+    color: #575279;
 }
 
 /* 悬停效果：柔和高亮 */
 button:hover {
-    background-color: rgba(80, 76, 112, 0.4); /* highlight */
+    background-color: rgba(206, 202, 205, 0.8);
 }
 
 /* 分类按钮样式 */
 #category-button {
     margin: 0 10px;
-    color: #c4a7e7; /* iris */
+    color: #907aa9; /* iris */
     font-weight: bold;
 }
 
 /* 固定区块分隔线 */
 #pinned-box {
     padding-bottom: 5px;
-    border-bottom: 1px dotted #eb6f92; /* love */
+    border-bottom: 1px dotted #b4637a; /* love */
 }
 
 /* 文件区块样式 */
 #files-box {
     padding: 5px;
-    border: 1px dotted #9ccfd8; /* foam */
+    border: 1px dotted #56949f; /* foam */
     border-radius: 12px;
-    background-color: rgba(45, 43, 60, 0.3); /* subtle overlay */
 }
 
 /* 数学结果标签 */
 #math-label {
     font-weight: bold;
     font-size: 16px;
-    color: #f6c177; /* gold */
+    color: #ea9d34; /* gold */
 }

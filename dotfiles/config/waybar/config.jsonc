@@ -109,11 +109,11 @@
             "weeks-pos": "right",
             "on-scroll": 1,
             "format": {
-                "months": "<span color='#ffead3'><b>{}</b></span>",
-                "days": "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+                "months": "<span color='#c4a7e7'><b>{}</b></span>",
+                "days": "<span color='#e0def4'><b>{}</b></span>",
+                "weeks": "<span color='#31748f'><b>W{}</b></span>",
+                "weekdays": "<span color='#9ccfd8'><b>{}</b></span>",
+                "today": "<span color='#eb6f92'><b><u>{}</u></b></span>"
             }
         },
         "actions": {
@@ -296,11 +296,6 @@
         },
         "on-click": "systemctl --user is-active gammastep && systemctl --user stop gammastep || systemctl --user start gammastep"
     },
-    "custom/keyboard": {
-        "format": "󰌌 {}",
-        "interval": 1,
-        "exec": "$HOME/.config/waybar/get_kbdlayout.sh"
-    },
     "custom/launcher": {
         "format": " 󰀻 ",
         "tooltip": false,
@@ -375,23 +370,13 @@
         "max-length": 35,
         "exec": "$HOME/.scripts/title"
     },
-    // "custom/weather": {
-    //     "format": "{}",
-    //     "format-alt": "{alt}: {}",
-    //     "format-alt-click": "click-right",
-    //     "interval": 3600,
-    //     // "exec": "curl -s 'https://wttr.in/?format=1'",
-    //     //"return-type": "json",
-    //     "exec": "~/.config/waybar/modules/weather.sh",
-    //     "exec-if": "ping wttr.in -c1"
-    // }
     "custom/weather": {
         "exec": "~/.config/waybar/modules/weather.py",
         "return-type": "json",
         "interval": 3600,
         "format": "{}",
         "signal": 16,
-        // "on-click-middle": "xdg-open https://weather.com/zh-CN/weather/today/l/$WEATHER_LOCATION_ID",
-        "on-click-right": "pkill -SIGRTMIN+16 waybar"
+        "on-click-middle": "pkill -SIGRTMIN+16 waybar"
+        // "on-click-right": "xdg-open https://weather.com/zh-CN/weather/today/l/$WEATHER_LOCATION_ID",
     }
 }
