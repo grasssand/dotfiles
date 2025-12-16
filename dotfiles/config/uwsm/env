@@ -3,7 +3,8 @@ export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 
 ### 自定义路径
-export PATH="$HOME/.local/bin:$PATH"
+export GOPATH="$HOME/.local/share/go"
+export PATH="$PATH:$GOPATH/bin:$HOME/.local/bin"
 
 ### 光标与主题设置
 export XCURSOR_THEME="Graphite-light-nord-cursors"
