@@ -9,7 +9,7 @@ config:
   longkey: false
 actions:
   pre:
-    install_rime_frost: git clone --depth 1 
+    install_rime_frost: git clone --depth 1
       https://github.com/gaboolic/rime-frost ~/.local/share/fcitx5/rime/
 dotfiles:
   d_alacritty:
@@ -18,12 +18,18 @@ dotfiles:
   d_bat:
     src: config/bat
     dst: ~/.config/bat
-  d_cliphist:
-    src: config/cliphist
-    dst: ~/.config/cliphist
-  d_dust:
-    src: config/dust
-    dst: ~/.config/dust
+  d_clipse:
+    src: config/clipse
+    dst: ~/.config/clipse
+  d_fish:
+    src: config/fish
+    dst: ~/.config/fish
+    upignore:
+    - '*/completions/*'
+    - '!*/completions/dotdrop.fish'
+    - '*/conf.d/*'
+    - '*/functions/*'
+    - '*/fish_variables'
   d_fontconfig:
     src: config/fontconfig
     dst: ~/.config/fontconfig
@@ -45,12 +51,29 @@ dotfiles:
   d_paru:
     src: config/paru
     dst: ~/.config/paru
+  d_pip:
+    src: config/pip
+    dst: ~/.config/pip
+  d_psd:
+    src: config/psd
+    dst: ~/.config/psd
+    upignore:
+    - '*/.psd.conf'
   d_rofi:
     src: config/rofi
     dst: ~/.config/rofi
   d_satty:
     src: config/satty
     dst: ~/.config/satty
+  d_user:
+    src: config/systemd/user
+    dst: ~/.config/systemd/user
+    upignore:
+    - '*/default.target.wants/*'
+    - '*/graphical-session.target.wants/*'
+  d_uv:
+    src: config/uv
+    dst: ~/.config/uv
   d_uwsm:
     src: config/uwsm
     dst: ~/.config/uwsm
@@ -60,45 +83,25 @@ dotfiles:
   d_wlogout:
     src: config/wlogout
     dst: ~/.config/wlogout
-  f_config.fish:
-    src: config/fish/config.fish
-    dst: ~/.config/fish/config.fish
-  f_fish_plugins:
-    src: config/fish/fish_plugins
-    dst: ~/.config/fish/fish_plugins
-  f_dotdrop.fish:
-    src: config/fish/completions/dotdrop.fish
-    dst: ~/.config/fish/completions/dotdrop.fish
-  f_pip.conf:
-    src: config/pip/pip.conf
-    dst: ~/.config/pip/pip.conf
-  f_uv.toml:
-    src: config/uv/uv.toml
-    dst: ~/.config/uv/uv.toml
-  d_themes:
-    src: local/share/fcitx5/themes
-    dst: ~/.local/share/fcitx5/themes
-    actions:
-    - install_rime_frost
   f_starship.toml:
     src: config/starship.toml
     dst: ~/.config/starship.toml
-  f_default.custom.yaml:
-    src: local/share/fcitx5/rime/default.custom.yaml
-    dst: ~/.local/share/fcitx5/rime/default.custom.yaml
-  f_rime_frost.custom.yaml:
-    src: local/share/fcitx5/rime/rime_frost.custom.yaml
-    dst: ~/.local/share/fcitx5/rime/rime_frost.custom.yaml
-  d_user:
-    src: config/systemd/user
-    dst: ~/.config/systemd/user
+  d_fcitx5:
+    src: local/share/fcitx5
+    dst: ~/.local/share/fcitx5
+    actions:
+    - install_rime_frost
+    upignore:
+    - '*/rime/*'
+    - '!*/rime/default.custom.yaml'
+    - '!*/rime/rime_frost.custom.yaml'
 profiles:
   cachyos:
     dotfiles:
     - d_alacritty
     - d_bat
-    - d_cliphist
-    - d_dust
+    - d_clipse
+    - d_fish
     - d_fontconfig
     - d_ghostty
     - d_hypr
@@ -106,18 +109,14 @@ profiles:
     - d_kitty
     - d_nwg-drawer
     - d_paru
+    - d_pip
+    - d_psd
     - d_rofi
     - d_satty
+    - d_user
+    - d_uv
     - d_uwsm
     - d_waybar
     - d_wlogout
-    - f_config.fish
-    - f_fish_plugins
-    - f_dotdrop.fish
-    - f_pip.conf
-    - f_uv.toml
     - f_starship.toml
-    - d_themes
-    - f_default.custom.yaml
-    - f_rime_frost.custom.yaml
-    - d_user
+    - d_fcitx5

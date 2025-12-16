@@ -22,9 +22,6 @@ id_ecdsa*
 id_ed25519*
 
 # API Token / 密码文件
-*.env
-.env.*
-.envrc
 *.secret
 *.secrets
 secret.*
@@ -32,13 +29,6 @@ secrets.*
 *.token
 token.*
 
-# 配置文件中可能包含敏感字段
-config.json
-config.yml
-config.yaml
-*.config.json
-*.config.yml
-*.config.yaml
 
 # 认证相关文件
 .auth*
@@ -57,6 +47,9 @@ credentials.*
 *.sql
 *.bak
 
+# systemd 额外文件
+*target.wants/
+
 # ==== 编辑器 / IDE 文件 ====
 .vscode/
 .idea/
@@ -64,6 +57,3 @@ credentials.*
 
 # ==== 本地机器唯一标识 ====
 .machine-id
-
-secrets*
-*wants/
